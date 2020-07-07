@@ -70,5 +70,10 @@ namespace Windows_media_player
         {
             Media.Balance = BalanceSlider.Value;
         }
+
+        private void Speed_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Media.SpeedRatio = SpeedSlider.Value;
+        }
     }
 }
