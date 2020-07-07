@@ -35,5 +35,40 @@ namespace Windows_media_player
                 MediaName.Text = dialog.FileName;
             }
         }
+
+        private void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Verifie si une source a été definis ou non 
+            if (Media.Source != null)
+                Media.Play();
+        }
+
+        private void PauseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Media.CanPause)
+                Media.Pause();
+        }
+
+        private void StopButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Verifie si une source a été definis ou non 
+            if (Media.Source != null)
+                Media.Stop();
+        }
+
+        private void MuteButton_Click(object sender, RoutedEventArgs e)
+        {
+            Media.IsMuted = !Media.IsMuted;
+        }
+
+        private void VolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Media.Volume = VolumeSlider.Value;
+        }
+
+        private void Balance_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Media.Balance = BalanceSlider.Value;
+        }
     }
 }
